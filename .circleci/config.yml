@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+  compile:
+   docker:
+      - image: fadlyas/kernel_dockerfile:latest
+   steps:
+      - run:
+          command: |
+           apt update && apt install -y default-jre nano flex
+           git config --global user.name "Ngontolamat"
+           git config --global user.email "briellamakenna5@gmail.com"
+           git clone https://github.com/Ngontolamat/android_kernel_realme_sdm710 -b lineage-18.1
+           chmod +x build.sh
+workflows:
+  version: 2.1
+  cooking:
+    jobs:
+      - compile
