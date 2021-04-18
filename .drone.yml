@@ -1,0 +1,15 @@
+--- 
+clone: 
+  depth: 1
+kind: pipeline
+name: RMX1851
+steps: 
+  - 
+    commands:
+      - "apt-get update && apt-get upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install default-jdk -y"
+      - "curl https://raw.githubusercontent.com/Ngontolamat/script/main/kernel.sh | bash"
+    environment: 
+      TELEGRAM_TOKEN: 
+        from_secret: BOT_API_KEY
+    image: fadlyas/kernel_dockerfile:latest
+    name: Saiful220
